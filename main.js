@@ -197,4 +197,22 @@ const superheroes = [
       "https://www.lego.com/cdn/cs/set/assets/blt64173c3e44a0a011/antman--Sidekick-Tall-1.jpg?fit=crop&format=jpg&quality=80&width=800&height=600&dpr=1",
   },
 ];
+
 console.table(superheroes);
+
+superheroes.forEach(showProduct)
+
+function showProduct(superheroes) {
+  const template = document.querySelector("template").content;
+  const clone = template.cloneNode(true);
+  clone.querySelector(".name").textContent = superheroes.name;
+  clone.querySelector(".power").textContent = superheroes.power;
+  clone.querySelector(".good").textContent = superheroes.good;
+  clone.querySelector(".height").textContent = superheroes.height;
+  clone.querySelector(".dob").textContent = superheroes.dob;
+  clone.querySelector(".image").src = superheroes.image;
+
+
+  const parent = document.querySelector("main");
+  parent.appendChild(clone);
+}
